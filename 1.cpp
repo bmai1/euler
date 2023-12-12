@@ -4,8 +4,6 @@
 using namespace std;
 
 class Solution {
-private:
-
 public:
     int threeOrFive() {
         int res = 0;
