@@ -34,22 +34,27 @@ private:
 public:
     long long lpf(long long n) {
         if (n <= 1) return -1;
-
         long long factor = pollardsRho(n);
-
         while (factor < n) {
             while (n % factor == 0) {
                 n /= factor;
             }
             factor = pollardsRho(n);
         }
+        return n;
+    }
 
+    long long lpf2(long long n) {
+        while (n % 2 == 0) n /= 2;
+        for (long long i = 3; i < n; i += 2) {
+            while (n % i == 0 && i < n) n /= i;
+        }
         return n;
     }
 };
 
 int main() {
     Solution solution;
-    cout << solution.lpf(600851475143) << endl;
+    cout << solution.lpf2(600851475143) << endl;
     return 0;
  }
